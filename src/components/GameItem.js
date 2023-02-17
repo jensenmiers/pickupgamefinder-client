@@ -16,16 +16,16 @@ function GameItem ( {game,
 
     return(
         <div>
-            Game ID: {id} <br/>
+            Game {id} <br/>
             Starts: {new Date(game_start).toGMTString()}
             <br/>
             Ends: {new Date(game_end).toGMTString()} <br/>
-            Total player cap: {capacity} <br/>
-            Gym ID: {gym_id} <br/>
-            Gym: {gym.gym_name} <br/>
+            Total Player Cap: {capacity} <br/>
+            {/* Gym ID: {gym_id} <br/> */}
+            Gym: {gym.gym_name} - ID {gym_id} <br/>
 
             <button onClick={handleDelete}>🗑</button>
-            <button onClick={populateEditForm}>Update Game Details</button><br/>  <br/>
+            <button onClick={populateEditForm}>{`Update Game ${id} Details`}</button><br/>  <br/>
         </div>
     )
 }

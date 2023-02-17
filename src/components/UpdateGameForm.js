@@ -55,7 +55,8 @@ function UpdateGameForm({ editGame, setEditGame, onEditFormSubmit }) {
           value={editGame.id} onChange={handleChange}
           type="number"
           name="id"
-          placeholder="Game ID" />
+          placeholder="Game ID"
+          readOnly />
         <label> Start: </label>
         <input
           value={editGame.game_start} onChange={handleChange}
