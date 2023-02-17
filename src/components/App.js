@@ -11,10 +11,10 @@ function App() {
         🏀 Pickup Basketball Games 🏀
         </h1>
       </header>
-      <p>
+      <div>
       <GameContainer />
       <GymContainer />
-      </p>
+      </div>
     </div>
   );
 }
