@@ -6,12 +6,19 @@ import UpdateGameForm from './UpdateGameForm'
 function GameContainer() {
     const baseUrl = 'http://localhost:9292/games'
 
-    const [gamesArray, setGamesArray] = useState([]);
-    // const [selectedGame, setSelectedGame] = useState([])
+    const initialEditForm = {
+        // populate with empty cells instead
+        id: '',
+        game_start: '',
+        game_end: '',
+        capacity: '',
+        gym_id: ''
+    }
 
-    // function selectGame(id) {
-    //     setSelectedGame(gamesArray.find(game => game.id == id))
-    // }
+    const [gamesArray, setGamesArray] = useState([]);
+    const [editGame, setEditGame] = useState(initialEditForm)
+
+    
 
     useEffect(() => {
         fetch(baseUrl)
@@ -46,11 +53,16 @@ function GameContainer() {
             })
     }
 
+    function onEditClick(gameObj) {
+        setEditGame(gameObj)
+    //     setEditGame(gamesArray.find(game => game.id == gameObj.id))
+    }
+
     return (
         <div>
-            <GameList gamesArray={gamesArray} onDelete={handleDelete}/>
+            <GameList gamesArray={gamesArray} onDelete={handleDelete} onEditClick={onEditClick}/>
             <NewGameForm onSubmitGame={addGame}/>
-            <UpdateGameForm onEditFormSubmit={onEditFormSubmit}/>
+            <UpdateGameForm editGame={editGame} setEditGame={setEditGame} onEditFormSubmit={onEditFormSubmit}/>
         </div>
     )
 }

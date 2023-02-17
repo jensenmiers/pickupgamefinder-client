@@ -3,7 +3,7 @@ import React, {useState} from "react";
 const defaultInputs = {
     game_start: '',
     game_end: '',
-    capacity: 10,
+    capacity: '',
     gym_id: ''
 
 }
@@ -44,10 +44,15 @@ function NewGameForm({ onSubmitGame }) {
     <div>
       <h3>Post a new game</h3>
       <form onSubmit={handleSubmit}>
+        <label> Start: </label>
         <input value={game_start} onChange={handleChange} type="datetime-local" name="game_start" placeholder="Game Start" />
+        <label> End: </label>
         <input value={game_end} onChange={handleChange} type="datetime-local" name="game_end" placeholder="Game End" />
+        <br/>
+        <label> Capacity: </label>
         <input value={capacity} onChange={handleChange} type="number" name="capacity" placeholder="..." />
-        <input value={gym_id} onChange={handleChange} type="number" name="gym_id" placeholder="Gym ID" />
+        <label> Gym ID: </label>
+        <input value={gym_id} onChange={handleChange} type="number" name="gym_id" placeholder="An existing Gym ID" />
         <button type="submit">Add Game</button>
       </form>
     </div>
